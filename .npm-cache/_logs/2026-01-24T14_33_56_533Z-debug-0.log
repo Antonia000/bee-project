@@ -1,0 +1,19 @@
+0 verbose cli /Users/nicoletaantonia/.nvm/versions/node/v22.17.1/bin/node /Users/nicoletaantonia/.nvm/versions/node/v22.17.1/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v22.17.1
+3 silly config load:file:/Users/nicoletaantonia/.nvm/versions/node/v22.17.1/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/nicoletaantonia/bee-project/.npmrc
+5 silly config load:file:/Users/nicoletaantonia/.npmrc
+6 silly config load:file:/Users/nicoletaantonia/.nvm/versions/node/v22.17.1/etc/npmrc
+7 verbose title npm exec @angular/cli@latest new frontend --routing --style=css --skip-git
+8 verbose argv "exec" "--yes" "--" "@angular/cli@latest" "new" "frontend" "--routing" "--style=css" "--skip-git"
+9 verbose logfile logs-max:10 dir:/Users/nicoletaantonia/bee-project/.npm-cache/_logs/2026-01-24T14_33_56_533Z-
+10 verbose logfile /Users/nicoletaantonia/bee-project/.npm-cache/_logs/2026-01-24T14_33_56_533Z-debug-0.log
+11 silly logfile done cleaning log files
+12 verbose cwd /Users/nicoletaantonia/bee-project
+13 verbose os Darwin 24.6.0
+14 verbose node v22.17.1
+15 verbose npm  v10.9.2
+16 verbose exit 1
+17 verbose code 1
+18 error A complete log of this run can be found in: /Users/nicoletaantonia/bee-project/.npm-cache/_logs/2026-01-24T14_33_56_533Z-debug-0.log

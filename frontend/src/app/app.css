@@ -1,0 +1,209 @@
+/* Bee Goodies Color Palette - Based on Logo */
+:host {
+  --honey-gold: #FFB601;
+  --honey-gold-medium: #F2B318;
+  --honey-gold-dark: #EDB220;
+  --bee-black: #000000;
+  --dirty-white: #F5F5F0;
+  --honey-gradient: linear-gradient(135deg, #FFB601 0%, #F2B318 50%, #EDB220 100%);
+  
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--dirty-white);
+  color: var(--bee-black);
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Navigation Bar */
+.navbar {
+  background: #FAFAF8;
+  padding: .7rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-left: -1rem;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--bee-black);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  color: var(--honey-gold);
+  transform: scale(1.1);
+  font-weight: 800;
+}
+
+/* Homepage Hero Section */
+.homepage {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dirty-white);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-30px, -30px) rotate(180deg);
+  }
+}
+
+.hero-section {
+  text-align: center;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 900px;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.welcome-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--bee-black);
+  font-family: "Montserrat", sans-serif;
+  animation: fadeInUp 1s ease-out;
+  position: relative;
+}
+
+.welcome-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0.2em;
+  left: 0;
+  width: 100%;
+  height: 0.15em;
+  background: var(--honey-gradient);
+  z-index: -1;
+  opacity: 0.8;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .welcome-title {
+    font-size: 2.5rem;
+  }
+
+  .logo-img {
+    height: 80px;
+  }
+
+  .nav-logo {
+    margin-left: -0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .nav-menu {
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
