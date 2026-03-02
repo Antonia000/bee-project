@@ -24,7 +24,7 @@
 }
 
 .brand-logo {
-  height: 36px;
+  height: 86px;
   width: auto;
 }
 
@@ -35,23 +35,21 @@
 
 .footer-nav {
   display: flex;
-  gap: 1rem;
+  gap: 0.2rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .footer-link {
   text-decoration: none;
+  width: 100%;
   color: var(--color-background);
   font-weight: 600;
   padding: 0.4rem 0.6rem;
   border-radius: 10px;
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-.footer-link:hover {
-  background: rgba(234, 224, 202, 0.16);
-  color: var(--color-primary);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .copyright {
@@ -72,4 +70,3 @@
     text-align: center;
   }
 }
-
