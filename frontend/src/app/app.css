@@ -1,15 +1,36 @@
-/* Bee Goodies Color Palette - Based on Logo */
+/* Global color system */
 :host {
-  --honey-gold: #FFB601;
-  --honey-gold-medium: #F2B318;
-  --honey-gold-dark: #EDB220;
-  --bee-black: #000000;
-  --dirty-white: #F5F5F0;
-  --honey-gradient: linear-gradient(135deg, #FFB601 0%, #F2B318 50%, #EDB220 100%);
-  
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+  /* Core palette */
+  --color-primary: #eae0ca;
+  --color-secondary: #453f3f;
+  --color-background: #fdfefa;
+
+  /* Legacy aliases so existing components keep working,
+     all ultimately based on the three core colors above. */
+  --honey-gold: var(--color-primary);
+  --honey-gold-medium: var(--color-primary);
+  --honey-gold-dark: var(--color-primary);
+  --bee-black: var(--color-secondary);
+  --dirty-white: var(--color-background);
+  --honey-gradient: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary) 50%,
+    var(--color-primary) 100%
+  );
+
+  font-family:
+    'Montserrat',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol';
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,16 +43,21 @@
 }
 
 body {
-  background-color: var(--dirty-white);
+  background-color: var(--color-background);
   color: var(--bee-black);
   min-height: 100vh;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* App layout shell – shared padding for all pages */
+.app-shell {
+  padding: 0rem 5rem;
 }
 
 /* Navigation Bar */
 .navbar {
-  background: #FAFAF8;
-  padding: .7rem 0;
+  background: #fafaf8;
+  padding: 0.7rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -79,7 +105,7 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all 0.3s ease;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   display: inline-block;
 }
 
@@ -101,7 +127,8 @@ body {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) rotate(0deg);
   }
   50% {
@@ -133,7 +160,7 @@ body {
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--bee-black);
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   animation: fadeInUp 1s ease-out;
   position: relative;
 }

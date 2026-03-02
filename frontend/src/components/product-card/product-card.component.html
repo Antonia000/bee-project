@@ -1,0 +1,19 @@
+<article class="card">
+  <div class="media">
+    <img class="photo" [src]="photoUrl" [alt]="title" loading="lazy" />
+  </div>
+
+  <div class="content">
+    <h3 class="title">{{ title }}</h3>
+    <div class="row">
+      <div class="price">{{ price | currency: 'EUR' : 'symbol' : '1.2-2' }}</div>
+      <button class="cart" type="button" aria-label="Add to cart" (click)="addToCart.emit()">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path
+            d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2Zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2ZM7.17 14h9.66c.75 0 1.4-.41 1.74-1.03l3.58-6.49A1 1 0 0 0 21.27 5H6.21L5.27 3H2a1 1 0 1 0 0 2h2l3.6 7.59-1.35 2.45C5.52 16.37 6.48 18 8 18h12a1 1 0 1 0 0-2H8l1.17-2Z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</article>

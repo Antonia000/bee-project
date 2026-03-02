@@ -1,0 +1,20 @@
+<header class="navbar">
+  <div class="nav-container">
+    <a class="nav-logo" routerLink="/" aria-label="Bee Goodies home">
+      <img src="/logo.svg" alt="Bee Goodies Logo" class="logo-img" />
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-menu">
+        @for (link of links; track link.path) {
+          <li>
+            <a class="nav-link" [routerLink]="link.path" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: link.path === '/' }">
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+

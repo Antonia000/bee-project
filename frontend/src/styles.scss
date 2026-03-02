@@ -1,0 +1,26 @@
+/* Design tokens (SCSS) */
+$color-primary: #EAE0CA;
+$color-secondary: #453F3F;
+$color-background: #FDFEFA;
+
+/* Expose as CSS custom properties so component CSS can use them */
+:root {
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-background: #{$color-background};
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: $color-background;
+  color: $color-secondary;
+  font-family: "Montserrat", sans-serif;
+}
+

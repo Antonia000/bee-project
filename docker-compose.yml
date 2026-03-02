@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   backend:
@@ -16,19 +16,31 @@ services:
     networks:
       - beemore-network
     healthcheck:
-      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:3000', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})",
+        ]
       interval: 30s
       timeout: 3s
       retries: 3
       start_period: 5s
 
   frontend:
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+    working_dir: /app
+    command: sh -lc "npm ci && npm start -- --host 0.0.0.0"
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      target: builder # <— use the Node stage, not nginx
     container_name: beemore-frontend
     ports:
-      - "80:80"
+      - "4200:4200" # dev server port
     depends_on:
       - backend
     restart: unless-stopped
@@ -38,3 +50,6 @@ services:
 networks:
   beemore-network:
     driver: bridge
+
+volumes:
+  frontend_node_modules:

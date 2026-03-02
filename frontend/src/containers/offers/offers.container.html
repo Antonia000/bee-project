@@ -1,0 +1,16 @@
+<main class="page">
+  <header class="page-header">
+    <h1>Offers</h1>
+    <p>Current promotions and discounts.</p>
+  </header>
+
+  <ul class="list">
+    @for (o of offers; track o.title) {
+      <li class="item">
+        <div class="item-title">{{ o.title }}</div>
+        <div class="item-detail">{{ o.detail }}</div>
+      </li>
+    }
+  </ul>
+</main>
+

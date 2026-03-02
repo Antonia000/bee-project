@@ -1,14 +1,1 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  background-color: #F5F5F0;
-  color: #000000;
-  font-family: "Montserrat", sans-serif;
-}
+/* Global styles moved into styles.scss (SCSS). This file is kept empty intentionally. */
