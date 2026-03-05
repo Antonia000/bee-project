@@ -1,13 +1,19 @@
 /* Design tokens (SCSS) */
-$color-primary: #EAE0CA;
-$color-secondary: #453F3F;
-$color-background: #FDFEFA;
+$color-primary: #eae0ca;
+$color-secondary: #2f2929;
+$color-background: #fdfefa;
+
+$transition-fast: 150ms ease-out;
+$nav-link-raise: -2px;
 
 /* Expose as CSS custom properties so component CSS can use them */
 :root {
   --color-primary: #{$color-primary};
   --color-secondary: #{$color-secondary};
   --color-background: #{$color-background};
+
+  --transition-fast: #{$transition-fast};
+  --nav-link-raise: #{$nav-link-raise};
 }
 
 html,
@@ -21,6 +27,5 @@ body {
 body {
   background-color: $color-background;
   color: $color-secondary;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
-

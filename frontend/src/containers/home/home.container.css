@@ -1,23 +1,27 @@
-.page {
-  padding: 24px 0;
+.container-overlay {
+  background-image: url('../../../public/home.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+
+  .title {
+    color: var(--color-primary);
+    font-weight: 400;
+  }
+
+  h1,
+  p {
+    margin: 0;
+  }
 }
 
-.hero {
-  padding: 28px 22px;
-  border-radius: 18px;
-  background: rgba(234, 224, 202, 0.4);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+.container {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 0 5rem;
 }
-
-.title {
-  font-size: 42px;
-  margin: 0 0 10px;
-  letter-spacing: -0.02em;
-}
-
-.subtitle {
-  margin: 0;
-  font-size: 18px;
-  opacity: 0.85;
-}
-

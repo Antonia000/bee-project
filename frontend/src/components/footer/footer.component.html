@@ -1,15 +1,16 @@
 <footer class="footer">
   <div class="footer-inner">
-    <a class="brand" routerLink="/" aria-label="Blievable home">
-      <img src="/logo-vertical.svg" alt="Blievable" class="brand-logo" />
-    </a>
+    <div class="footer-brand">
+      <a class="brand" routerLink="/" aria-label="Blievable home">
+        <img src="/logo-vertical.svg" alt="Blievable" class="brand-logo" />
+      </a>
+      <div class="copyright">© {{ year }} Blievable</div>
+    </div>
 
     <nav class="footer-nav" aria-label="Footer">
       @for (link of links; track link.path) {
         <a class="footer-link" [routerLink]="link.path">{{ link.label }}</a>
       }
     </nav>
-
-    <div class="copyright">© {{ year }} Blievable</div>
   </div>
 </footer>

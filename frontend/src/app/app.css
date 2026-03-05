@@ -41,6 +41,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+.app-shell {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+.app-shell-inner {
+  width: auto;
+}
 
 body {
   background-color: var(--color-background);
@@ -49,9 +56,9 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-/* App layout shell – shared padding for all pages */
-.app-shell {
-  padding: 0rem 5rem;
+.route-host {
+  position: relative;
+  min-height: 300px;
 }
 
 /* Navigation Bar */
@@ -83,11 +90,6 @@ body {
 .logo-img {
   height: 50px;
   width: auto;
-  transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-  transform: scale(1.05);
 }
 
 .nav-menu {
@@ -104,15 +106,8 @@ body {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  transition: all 0.3s ease;
   font-family: 'Montserrat', sans-serif;
   display: inline-block;
-}
-
-.nav-link:hover {
-  color: var(--honey-gold);
-  transform: scale(1.1);
-  font-weight: 800;
 }
 
 /* Homepage Hero Section */
