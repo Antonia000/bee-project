@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 type Product = {
   id: string;
@@ -11,7 +13,7 @@ type Product = {
 
 @Component({
   selector: 'app-products',
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, MatCardModule, MatButtonModule],
   templateUrl: './products.container.html',
   styleUrl: './products.container.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -48,4 +50,3 @@ export class ProductsContainer {
     console.log('Add to cart:', product);
   }
 }
-

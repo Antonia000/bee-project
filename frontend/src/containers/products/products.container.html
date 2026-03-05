@@ -1,18 +1,26 @@
-<main class="page">
-  <header class="page-header">
-    <h1>Products</h1>
+<main class="container">
+  <div>
+    <h1 class="title">Products</h1>
     <p>Browse our favorites.</p>
-  </header>
+  </div>
 
-  <section class="grid">
+  <div class="products-grid">
     @for (p of products; track p.id) {
-      <app-product-card
-        [title]="p.title"
-        [photoUrl]="p.photoUrl"
-        [price]="p.price"
-        (addToCart)="onAddToCart(p)"
-      />
-    }
-  </section>
-</main>
+      <mat-card class="product-card">
+        <img mat-card-image [src]="p.photoUrl" alt="{{ p.title }}" />
 
+        <mat-card-header>
+          <mat-card-title>{{ p.title }}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>Price: ${{ p.price }}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="onAddToCart(p)">Add to Cart</button>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </div>
+</main>

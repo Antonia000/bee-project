@@ -2,7 +2,7 @@
 :host {
   /* Core palette */
   --color-primary: #eae0ca;
-  --color-secondary: #453f3f;
+  --color-secondary: #2f2929;
   --color-background: #fdfefa;
 
   /* Legacy aliases so existing components keep working,
@@ -68,7 +68,6 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 100;
 }
 
 .nav-container {

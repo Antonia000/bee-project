@@ -1,41 +1,47 @@
-.page {
-  padding: 24px 0 30px;
-}
-
-.page-header {
-  margin-bottom: 18px;
-}
-
-.page-header h1 {
-  margin: 0 0 6px;
-  font-size: 30px;
-  letter-spacing: -0.02em;
-}
-
-.page-header p {
-  margin: 0;
-  opacity: 0.8;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+.container {
+  background-color: var(--color-secondary);
+  margin-top: -80px;
   gap: 16px;
+  padding: 7rem 5rem;
 }
 
+.container .title {
+  color: var(--color-primary);
+  font-weight: 400;
+}
+
+.container h1,
+.container p {
+  margin: 0;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+
+  .product-card img {
+    width: 100%; /* fills card width */
+    height: 220px; /* fixed height */
+    object-fit: cover; /* crop but maintain aspect ratio */
+    border-radius: 4px; /* optional rounded corners */
+  }
+}
+
+/* make cards fill their grid cell */
 app-product-card {
-  grid-column: span 12;
+  display: block;
+  width: 100%;
 }
 
-@media (min-width: 720px) {
-  app-product-card {
-    grid-column: span 6;
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
-  app-product-card {
-    grid-column: span 4;
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
   }
 }
-
