@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 type NavLink = { label: string; path: string };
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, MatIconModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,5 +18,8 @@ export class HeaderComponent {
     { label: 'Offers', path: '/offers' },
     { label: 'About', path: '/about' },
   ];
-}
 
+  onCartClick() {
+    console.log('Implement cart functionality');
+  }
+}
