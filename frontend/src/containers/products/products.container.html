@@ -1,26 +1,41 @@
 <main class="container">
-  <div>
-    <h1 class="title">Products</h1>
-    <p>Browse our favorites.</p>
-  </div>
+  <header class="header">
+    <h1 class="title">Our Goods</h1>
+  </header>
 
-  <div class="products-grid">
-    @for (p of products; track p.id) {
-      <mat-card class="product-card">
-        <img mat-card-image [src]="p.photoUrl" alt="{{ p.title }}" />
+  <mat-tab-group class="tabs" animationDuration="100ms">
+    <mat-tab label="Candles">
+      <div class="tab-panel">
+        <div class="products-grid">
+          @for (p of candles; track p.id) {
+            <app-product-card
+              [title]="p.title"
+              [photoUrl]="p.photoUrl"
+              [price]="p.price"
+              (addToCart)="onAddToCart(p)"
+            ></app-product-card>
+          }
+        </div>
+      </div>
+    </mat-tab>
 
-        <mat-card-header>
-          <mat-card-title>{{ p.title }}</mat-card-title>
-        </mat-card-header>
-
-        <mat-card-content>
-          <p>Price: ${{ p.price }}</p>
-        </mat-card-content>
-
-        <mat-card-actions>
-          <button mat-button color="primary" (click)="onAddToCart(p)">Add to Cart</button>
-        </mat-card-actions>
-      </mat-card>
-    }
-  </div>
+    <mat-tab label="Decorations">
+      <div class="tab-panel">
+        <app-empty-state
+          title="No items yet"
+          description="We’re working on it. Check back soon for new pieces."
+          icon="format_paint"
+        ></app-empty-state>
+      </div>
+    </mat-tab>
+    <mat-tab label="Others">
+      <div class="tab-panel">
+        <app-empty-state
+          title="No items yet"
+          description="We’re working on it. Check back soon for new pieces."
+          icon="format_paint"
+        ></app-empty-state>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </main>

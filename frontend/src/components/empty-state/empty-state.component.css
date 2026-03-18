@@ -1,0 +1,36 @@
+.empty-state {
+  width: 100%;
+  padding: 3.25rem 1.5rem;
+  border-radius: 18px;
+  border: 1px dashed rgba(47, 41, 41, 0.25);
+  background: rgba(234, 224, 202, 0.35);
+  backdrop-filter: blur(6px);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  color: var(--color-secondary);
+}
+
+.icon {
+  color: var(--color-third);
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Syncopate';
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.description {
+  margin: 0;
+  max-width: 48ch;
+  opacity: 0.75;
+}
+

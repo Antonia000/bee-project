@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+import { EmptyStateComponent } from '../../components/empty-state/empty-state.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import candlesData from './current/products.v1.json';
 
 type Product = {
   id: string;
@@ -13,38 +14,14 @@ type Product = {
 
 @Component({
   selector: 'app-products',
-  imports: [ProductCardComponent, MatCardModule, MatButtonModule],
+  standalone: true,
+  imports: [MatTabsModule, ProductCardComponent, EmptyStateComponent],
   templateUrl: './products.container.html',
   styleUrl: './products.container.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsContainer {
-  protected readonly products: Product[] = [
-    {
-      id: 'honey-1',
-      title: 'Wildflower Honey',
-      photoUrl: 'https://picsum.photos/seed/honey/900/650',
-      price: 12.99,
-    },
-    {
-      id: 'candle-1',
-      title: 'Beeswax Candle',
-      photoUrl: 'https://picsum.photos/seed/candle/900/650',
-      price: 9.5,
-    },
-    {
-      id: 'pollen-1',
-      title: 'Bee Pollen Mix',
-      photoUrl: 'https://picsum.photos/seed/pollen/900/650',
-      price: 15.75,
-    },
-    {
-      id: 'propolis-1',
-      title: 'Propolis Drops',
-      photoUrl: 'https://picsum.photos/seed/propolis/900/650',
-      price: 18.25,
-    },
-  ];
+  protected readonly candles: Product[] = [...candlesData.candles];
 
   protected onAddToCart(product: Product) {
     console.log('Add to cart:', product);

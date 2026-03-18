@@ -1,0 +1,22 @@
+{
+  "candles": [
+    {
+      "id": "wildflower-simple",
+      "title": "Wildflower Honey",
+      "photoUrl": "/products/wildflower-single/wildflower-simple-front.png",
+      "price": 16.0
+    },
+    {
+      "id": "wildflower-simple-tray",
+      "title": "Wildflower Set Tray",
+      "photoUrl": "/products/wildflower-tray/wildflower-simple-tray-front.png",
+      "price": 12.0
+    },
+    {
+      "id": "wildflower-nude-set",
+      "title": "Double Wildflower Set",
+      "photoUrl": "/products/wildflower-nude-set/wildflower-nude-set-front-1.png",
+      "price": 15.75
+    }
+  ]
+}

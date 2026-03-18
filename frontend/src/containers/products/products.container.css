@@ -1,13 +1,53 @@
 .container {
-  background-color: var(--color-secondary);
   margin-top: -80px;
   gap: 16px;
   padding: 7rem 5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .container .title {
   color: var(--color-primary);
   font-weight: 400;
+}
+
+.header {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.subtitle {
+  color: var(--color-secondary);
+  opacity: 0.8;
+}
+
+.tabs {
+  margin-top: 1.25rem;
+  width: 100%;
+}
+
+.tab-panel {
+  padding-top: 1.5rem;
+}
+
+/* Tabs colors (scoped to this page) */
+:host ::ng-deep .tabs {
+  --mat-tab-header-inactive-label-text-color: var(--color-secondary);
+  --mat-tab-header-active-label-text-color: var(--color-primary);
+  --mdc-tab-indicator-active-indicator-color: var(--color-primary);
+}
+
+/* Tabs typography only (colors are driven by the global Material theme vars) */
+:host ::ng-deep .tabs .mdc-tab__text-label {
+  font-family: 'Syncopate';
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+:host ::ng-deep .tabs .mdc-tab--active .mdc-tab__text-label {
+  color: var(--color-primary);
 }
 
 .container h1,

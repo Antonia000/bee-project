@@ -54,6 +54,22 @@ $nav-link-raise: -2px;
 
   --transition-fast: #{$transition-fast};
   --nav-link-raise: #{$nav-link-raise};
+
+  /* Angular Material (M3) system color overrides */
+  --mat-sys-primary: #{$color-primary};
+  --mat-sys-on-primary: #{$color-secondary};
+  --mat-sys-primary-container: #f4eddc;
+  --mat-sys-on-primary-container: #{$color-secondary};
+
+  --mat-sys-secondary: #{$color-secondary};
+  --mat-sys-on-secondary: #{$color-primary};
+  --mat-sys-secondary-container: #4a4343;
+  --mat-sys-on-secondary-container: #{$color-primary};
+
+  --mat-sys-tertiary: #{$color-third};
+  --mat-sys-on-tertiary: #{$color-primary};
+  --mat-sys-tertiary-container: #c89f85;
+  --mat-sys-on-tertiary-container: #2f2929;
 }
 
 html,
@@ -68,4 +84,14 @@ body {
   background-color: $color-background;
   color: $color-secondary;
   font-family: 'Montserrat', sans-serif;
+  background-image:
+    linear-gradient(rgba(207, 177, 114, 0.7), rgba(105, 88, 51, 0.92)), url('/motive.png');
+  background-repeat: no-repeat, repeat;
+  background-size:
+    cover,
+    340px auto;
+  background-position:
+    center,
+    top left;
+  background-attachment: fixed, fixed;
 }
