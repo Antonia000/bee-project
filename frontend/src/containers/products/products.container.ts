@@ -8,8 +8,11 @@ import candlesData from './current/products.v1.json';
 type Product = {
   id: string;
   title: string;
-  photoUrl: string;
+  subtitle: string;
+  photoUrls: string[];
   price: number;
+  variants: string[];
+  weight: string;
 };
 
 @Component({

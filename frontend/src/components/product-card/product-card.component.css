@@ -1,19 +1,56 @@
 .card {
   background: transparent;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: 360px auto;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
+  --product-photo-height: 400px;
 }
 
 .media {
   position: relative;
-  background: linear-gradient(135deg, rgba(234, 224, 202, 0.4), rgba(234, 224, 202, 0.15));
+  height: var(--product-photo-height);
+  flex: none;
+}
+
+.img-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 200px;
+  border: 1px solid transparent;
+  background: var(--color-secondary);
+  opacity: 70%;
+  backdrop-filter: blur(8px);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.img-nav.prev {
+  left: 10px;
+}
+
+.img-nav.next {
+  right: 10px;
+}
+
+.img-nav:disabled {
+  display: none;
+}
+.img-nav:hover {
+  opacity: 100%;
 }
 
 .photo {
   width: 100%;
-  height: 360px;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition:
@@ -21,22 +58,45 @@
     box-shadow 0.3s ease;
 }
 .photo:hover {
-  transform: scale(1.01);
+  transform: scale(1.02);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.photo-scroll {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.photo-scroll .photo {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.photo-scroll {
+  scrollbar-width: none; /* Firefox */
+}
+
+.photo-scroll::-webkit-scrollbar {
+  display: none; /* WebKit */
 }
 
 .content {
   padding: 1rem 0 0;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  height: 100%;
+  gap: 0.1rem;
+  flex: 1;
 }
 
 .title {
   margin: 0;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 20px;
   color: var(--color-primary);
 }
 
@@ -54,6 +114,7 @@
 
 .add-button {
   margin: 0;
+  margin-top: auto;
   width: 100%;
   padding: 0.85rem 1rem;
   border-radius: 4px;
@@ -62,8 +123,8 @@
     linear-gradient(
       135deg,
       rgba(234, 224, 202, 0.95) 0%,
-      rgba(234, 224, 202, 0.72) 30%,
-      rgba(234, 224, 202, 0.86) 100%
+      rgba(234, 224, 202, 0.72) 40%,
+      rgba(234, 224, 202, 0.86) 60%
     ),
     url('/motive.png');
   background-size:

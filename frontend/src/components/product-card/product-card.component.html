@@ -1,6 +1,40 @@
-<article class="card">
+<article
+  class="card"
+  role="link"
+  tabindex="0"
+  (click)="navigateToProduct()"
+  (keydown.enter)="navigateToProduct()"
+>
   <div class="media">
-    <img class="photo" [src]="photoUrl" [alt]="title" loading="lazy" />
+    @if (photoUrls.length > 1) {
+      <button
+        type="button"
+        class="img-nav prev"
+        aria-label="Previous image"
+        [disabled]="currentIndex === 0"
+        (click)="prev($event)"
+      >
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+
+      <div class="photo-scroll" #photoScroller aria-label="Product images" (scroll)="onScroll()">
+        @for (url of photoUrls; track $index) {
+          <img class="photo" [src]="url" [alt]="title" loading="lazy" />
+        }
+      </div>
+
+      <button
+        type="button"
+        class="img-nav next"
+        aria-label="Next image"
+        [disabled]="currentIndex === photoUrls.length - 1"
+        (click)="next($event)"
+      >
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    } @else {
+      <img class="photo" [src]="photoUrls[0]" [alt]="title" loading="lazy" />
+    }
   </div>
 
   <div class="content">
@@ -9,12 +43,13 @@
     <div class="row">
       <p>{{ price }} <span>RON</span></p>
     </div>
-  </div>
-</article>
-<div>
-  @if (landscape) {
-    <button class="add-button" type="button" aria-label="Add to cart" (click)="addToCart.emit()">
+    <button
+      class="add-button"
+      type="button"
+      aria-label="Add to cart"
+      (click)="$event.stopPropagation(); addToCart.emit()"
+    >
       Add to cart
     </button>
-  }
-</div>
+  </div>
+</article>

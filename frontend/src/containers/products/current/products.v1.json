@@ -1,22 +1,44 @@
 {
   "candles": [
     {
-      "id": "wildflower-simple",
+      "id": "wildflower-single",
       "title": "Wildflower Honey",
-      "photoUrl": "/products/wildflower-single/wildflower-simple-front.png",
-      "price": 16.0
+      "subtitle": "Hand-poured scented candle in a nude handcrafted bowl, combining minimalist design with a warm, soothing ambiance.",
+      "photoUrls": [
+        "/products/wildflower-single/wildflower-simple-front.png",
+        "/products/wildflower-single/wildflower-single.jpg"
+      ],
+      "price": 24.0,
+      "variants": ["white", "nude"],
+      "weight": "150g"
     },
     {
-      "id": "wildflower-simple-tray",
+      "id": "wildflower-tray",
       "title": "Wildflower Set Tray",
-      "photoUrl": "/products/wildflower-tray/wildflower-simple-tray-front.png",
-      "price": 12.0
+      "subtitle": "Hand-poured scented candle in a nude handcrafted bowl, paired with a matching tray for a refined, minimalist touch and a warm, soothing ambiance.",
+      "photoUrls": [
+        "/products/wildflower-tray/wildflower-simple-tray-front.png",
+        "/products/wildflower-tray/wildflower-simple.jpg",
+        "/products/wildflower-tray/wildflower-simple-1.jpg",
+        "/products/wildflower-tray/wildflower-simple-2.jpg"
+      ],
+      "price": 36.0,
+      "variants": ["white", "nude"],
+      "weight": "220g"
     },
     {
       "id": "wildflower-nude-set",
       "title": "Double Wildflower Set",
-      "photoUrl": "/products/wildflower-nude-set/wildflower-nude-set-front-1.png",
-      "price": 15.75
+      "subtitle": "Set of two hand-poured scented candles in nude handcrafted bowls, great gift box that brings warmth and a soothing ambiance.",
+      "photoUrls": [
+        "/products/wildflower-nude-set/wildflower-nude-set-front-1.png",
+        "/products/wildflower-nude-set/wildflower-nude-set-front-2.png",
+        "/products/wildflower-nude-set/wildflower-nude-set-1.jpg",
+        "/products/wildflower-nude-set/wildflower-nude-set-2.jpg"
+      ],
+      "price": 40,
+      "variants": ["white", "nude"],
+      "weight": "300g"
     }
   ]
 }

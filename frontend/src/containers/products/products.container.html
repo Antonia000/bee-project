@@ -9,8 +9,9 @@
         <div class="products-grid">
           @for (p of candles; track p.id) {
             <app-product-card
+              [productId]="p.id"
               [title]="p.title"
-              [photoUrl]="p.photoUrl"
+              [photoUrls]="p.photoUrls"
               [price]="p.price"
               (addToCart)="onAddToCart(p)"
             ></app-product-card>

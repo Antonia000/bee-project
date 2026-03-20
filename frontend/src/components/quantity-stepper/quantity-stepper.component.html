@@ -1,0 +1,23 @@
+<div class="stepper" role="group" aria-label="Quantity selector">
+  <button
+    type="button"
+    class="btn"
+    aria-label="Decrease quantity"
+    (click)="decrement()"
+    [disabled]="quantity <= min"
+  >
+    <mat-icon>remove</mat-icon>
+  </button>
+
+  <div class="value" aria-live="polite">{{ quantity }}</div>
+
+  <button
+    type="button"
+    class="btn"
+    aria-label="Increase quantity"
+    (click)="increment()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+

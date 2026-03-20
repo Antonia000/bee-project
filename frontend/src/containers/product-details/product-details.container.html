@@ -1,0 +1,86 @@
+<main class="details-page">
+  <div class="topbar">
+    <a class="back-link" routerLink="/products">← Back</a>
+  </div>
+
+  @if (product) {
+    <section class="details-layout">
+      <div class="gallery">
+        @if (product.photoUrls.length > 1) {
+          <button
+            type="button"
+            class="img-nav prev"
+            aria-label="Previous photo"
+            [disabled]="currentIndex === 0"
+            (click)="prev($event)"
+          >
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+
+          <div
+            class="photo-scroll"
+            #photoScroller
+            aria-label="Product photos"
+            (scroll)="onScroll()"
+            (click)="$event.stopPropagation()"
+          >
+            @for (url of product.photoUrls; track $index) {
+              <img class="photo" [src]="url" [alt]="product.title" loading="lazy" />
+            }
+          </div>
+
+          <button
+            type="button"
+            class="img-nav next"
+            aria-label="Next photo"
+            [disabled]="currentIndex === product.photoUrls.length - 1"
+            (click)="next($event)"
+          >
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        } @else {
+          <img class="photo-single" [src]="product.photoUrls[0]" [alt]="product.title" />
+        }
+      </div>
+
+      <div class="info">
+        <h1 class="title">{{ product.title }}</h1>
+
+        <span class="span">{{ product.weight }}</span>
+
+        <p class="subtitle">{{ product.subtitle ?? product.id }}</p>
+        <div class="price-row">
+          <span class="value">{{ product.price }} <span class="currency">RON</span></span>
+        </div>
+
+        <app-quantity-stepper
+          class="quantity-stepper"
+          [quantity]="quantity"
+          (quantityChange)="onQuantityChange($event)"
+        ></app-quantity-stepper>
+
+        <button class="add-button" type="button" aria-label="Add to cart" (click)="onAddToCart()">
+          Add to cart
+        </button>
+        <section class="instructions" aria-label="Instructions">
+          <h2 class="instructions-title">Instructions</h2>
+          <div class="instructions-text">
+            <p>
+              Place candles on a stable, heat-resistant surface (use the included tray for best
+              protection). Keep away from drafts, flammable objects, children, and pets; never leave
+              a burning candle unattended.
+            </p>
+            For handcrafted pieces, lighting the candles will alter and may damage their decorative
+            design for display use.
+          </div>
+        </section>
+      </div>
+    </section>
+  } @else {
+    <app-empty-state
+      title="Product not found"
+      description="We couldn’t find this product. Please go back and try again."
+      icon="search"
+    ></app-empty-state>
+  }
+</main>

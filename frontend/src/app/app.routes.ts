@@ -7,6 +7,13 @@ export const routes: Routes = [
     loadComponent: () => import('../containers/home/home.container').then((m) => m.HomeContainer),
   },
   {
+    path: 'products/:productId',
+    loadComponent: () =>
+      import('../containers/product-details/product-details.container').then(
+        (m) => m.ProductDetailsContainer
+      ),
+  },
+  {
     path: 'products',
     loadComponent: () =>
       import('../containers/products/products.container').then((m) => m.ProductsContainer),

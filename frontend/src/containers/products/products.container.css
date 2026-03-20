@@ -58,7 +58,7 @@
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 22px;
 
   .product-card img {
     width: 100%; /* fills card width */

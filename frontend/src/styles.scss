@@ -41,6 +41,7 @@ $color-primary: #eae0ca;
 $color-secondary: #2f2929;
 $color-background: #fdfefa;
 $color-third: #804a29;
+$color-blur-background: rgba(234, 224, 202, 0.28);
 
 $transition-fast: 150ms ease-out;
 $nav-link-raise: -2px;
@@ -51,6 +52,7 @@ $nav-link-raise: -2px;
   --color-secondary: #{$color-secondary};
   --color-background: #{$color-background};
   --color-third: #{$color-third};
+  --color-blur-background: #{$color-blur-background};
 
   --transition-fast: #{$transition-fast};
   --nav-link-raise: #{$nav-link-raise};

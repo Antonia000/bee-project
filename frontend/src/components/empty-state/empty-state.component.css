@@ -3,7 +3,7 @@
   padding: 3.25rem 1.5rem;
   border-radius: 18px;
   border: 1px dashed rgba(47, 41, 41, 0.25);
-  background: rgba(234, 224, 202, 0.35);
+  background: var(--color-blur-background);
   backdrop-filter: blur(6px);
   display: grid;
   justify-items: center;
