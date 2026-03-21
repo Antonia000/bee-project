@@ -46,9 +46,9 @@
   position: relative;
   overflow: hidden;
   padding: 10px;
+  border-radius: 50% 50% 0 0;
   transform: translateY(16px);
   border: 1px solid rgba(234, 224, 202, 0.85);
-  border-radius: var(--offer-media-radius);
   background: var(--color-blur-background);
   box-shadow:
     0 14px 30px rgba(47, 41, 41, 0.08),
@@ -107,7 +107,7 @@
   }
 
   .offer-media-contour {
-    transform: translateY(10px);
+    transform: translateY(50px);
   }
 
   .page-header h1 {
