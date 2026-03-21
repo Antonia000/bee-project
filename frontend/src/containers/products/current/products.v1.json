@@ -9,7 +9,7 @@
         "/products/wildflower-single/wildflower-single.jpg"
       ],
       "price": 24.0,
-      "variants": ["white", "nude"],
+      "variants": ["white", "nude", "red", "yellow"],
       "weight": "150g"
     },
     {
@@ -23,7 +23,7 @@
         "/products/wildflower-tray/wildflower-simple-2.jpg"
       ],
       "price": 36.0,
-      "variants": ["white", "nude"],
+      "variants": ["white", "nude", "red", "yellow"],
       "weight": "220g"
     },
     {
@@ -37,7 +37,7 @@
         "/products/wildflower-nude-set/wildflower-nude-set-2.jpg"
       ],
       "price": 40,
-      "variants": ["white", "nude"],
+      "variants": ["white", "nude", "red", "yellow"],
       "weight": "300g"
     }
   ]

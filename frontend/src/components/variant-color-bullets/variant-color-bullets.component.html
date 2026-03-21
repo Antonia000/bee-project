@@ -1,0 +1,19 @@
+@if (variants.length > 0) {
+  <div class="variant-picker" role="radiogroup" [attr.aria-label]="'Color'">
+    <div class="bullets">
+      @for (v of variants; track v) {
+        <button
+          type="button"
+          class="bullet"
+          role="radio"
+          [attr.aria-checked]="selectedVariant === v"
+          [attr.aria-label]="label(v)"
+          [class.bullet--selected]="selectedVariant === v"
+          [class.bullet--light]="v.toLowerCase() === 'white'"
+          [style.--swatch]="swatchColor(v)"
+          (click)="select(v)"
+        ></button>
+      }
+    </div>
+  </div>
+}

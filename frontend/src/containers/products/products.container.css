@@ -4,6 +4,33 @@
   padding: 7rem 5rem;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 260ms ease;
+}
+
+.container--ready {
+  opacity: 1;
+  visibility: visible;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: grid;
+  place-items: center;
+  background: rgba(234, 224, 202, 0.88);
+  backdrop-filter: blur(8px);
+}
+
+.loader-spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(47, 41, 41, 0.18);
+  border-top-color: var(--color-third);
+  animation: spin 0.8s linear infinite;
 }
 
 .container .title {
@@ -83,5 +110,11 @@ app-product-card {
 @media (max-width: 600px) {
   .products-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }

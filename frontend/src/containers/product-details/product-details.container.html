@@ -25,7 +25,14 @@
             (click)="$event.stopPropagation()"
           >
             @for (url of product.photoUrls; track $index) {
-              <img class="photo" [src]="url" [alt]="product.title" loading="lazy" />
+              <img
+                class="photo"
+                [src]="url"
+                [alt]="product.title"
+                [attr.loading]="$index === 0 ? 'eager' : 'lazy'"
+                [attr.fetchpriority]="$index === 0 ? 'high' : 'auto'"
+                decoding="async"
+              />
             }
           </div>
 
@@ -39,7 +46,14 @@
             <mat-icon>chevron_right</mat-icon>
           </button>
         } @else {
-          <img class="photo-single" [src]="product.photoUrls[0]" [alt]="product.title" />
+          <img
+            class="photo-single"
+            [src]="product.photoUrls[0]"
+            [alt]="product.title"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
         }
       </div>
 
@@ -52,6 +66,14 @@
         <div class="price-row">
           <span class="value">{{ product.price }} <span class="currency">RON</span></span>
         </div>
+
+        @if (product.variants.length) {
+          <app-variant-color-bullets
+            [variants]="product.variants"
+            [selectedVariant]="selectedVariant"
+            (selectedVariantChange)="onVariantChange($event)"
+          ></app-variant-color-bullets>
+        }
 
         <app-quantity-stepper
           class="quantity-stepper"

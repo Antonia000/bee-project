@@ -1,0 +1,56 @@
+.variant-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bullets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.bullet {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  padding: 0;
+  border: 2px solid transparent;
+  background-color: var(--swatch);
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(47, 41, 41, 0.12);
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.bullet--light {
+  box-shadow:
+    inset 0 0 0 1px rgba(47, 41, 41, 0.2),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+}
+
+.bullet:hover {
+  transform: scale(1.06);
+}
+
+.bullet:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.bullet--selected {
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 5px var(--color-blur-background),
+    inset 0 0 0 1px rgba(47, 41, 41, 0.15);
+}
+
+.bullet--selected.bullet--light {
+  border-color: var(--color-primary);
+  box-shadow:
+    0 0 0 5px var(--color-blur-background),
+    inset 0 0 0 1px rgba(47, 41, 41, 0.25);
+}

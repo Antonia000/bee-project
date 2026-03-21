@@ -19,6 +19,11 @@ export const routes: Routes = [
       import('../containers/products/products.container').then((m) => m.ProductsContainer),
   },
   {
+    path: 'checkout',
+    loadComponent: () =>
+      import('../containers/checkout/checkout.container').then((m) => m.CheckoutContainer),
+  },
+  {
     path: 'offers',
     loadComponent: () =>
       import('../containers/offers/offers.container').then((m) => m.OffersContainer),

@@ -1,16 +1,32 @@
 <main class="page">
   <header class="page-header">
     <h1>Offers</h1>
-    <p>Current promotions and discounts.</p>
   </header>
 
-  <ul class="list">
-    @for (o of offers; track o.title) {
-      <li class="item">
-        <div class="item-title">{{ o.title }}</div>
-        <div class="item-detail">{{ o.detail }}</div>
-      </li>
-    }
-  </ul>
-</main>
+  <section class="offer-card">
+    <div class="offer-media">
+      <div class="offer-media-contour">
+        <img
+          class="offer-photo"
+          src="/products/wildflower-tray/wildflower-simple-tray-front.png"
+          alt="Wildflower candle tray set"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
 
+    <div class="offer-copy">
+      <h2>Planning a larger order?</h2>
+      <p>
+        For orders of more than <strong>8 products</strong>, we offer a
+        <strong>10% discount</strong>.
+      </p>
+      <p>
+        Perfect for events, thoughtful gifts, or curated decorative sets. Reach out before ordering
+        if you want help choosing matching pieces.
+      </p>
+    </div>
+  </section>
+</main>

@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { CartService } from '../../app/services/cart.service';
 
 type NavLink = { label: string; path: string };
 
@@ -12,14 +13,12 @@ type NavLink = { label: string; path: string };
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
+  protected readonly cart = inject(CartService);
+
   protected readonly links: NavLink[] = [
     { label: 'Home', path: '/' },
     { label: 'Products', path: '/products' },
     { label: 'Offers', path: '/offers' },
     { label: 'About', path: '/about' },
   ];
-
-  onCartClick() {
-    console.log('Implement cart functionality');
-  }
 }

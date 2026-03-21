@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, ElementRef, ViewChild, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { MatIconModule } from '@angular/material/icon';
+import { CartService } from '../../app/services/cart.service';
 import { EmptyStateComponent } from '../../components/empty-state/empty-state.component';
 import { QuantityStepperComponent } from '../../components/quantity-stepper/quantity-stepper.component';
+import { VariantColorBulletsComponent } from '../../components/variant-color-bullets/variant-color-bullets.component';
 
 import productsData from '../products/current/products.v1.json';
 
@@ -20,13 +22,21 @@ type Product = {
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [RouterLink, MatIconModule, EmptyStateComponent, QuantityStepperComponent],
+  imports: [
+    RouterLink,
+    MatIconModule,
+    EmptyStateComponent,
+    QuantityStepperComponent,
+    VariantColorBulletsComponent,
+  ],
   templateUrl: './product-details.container.html',
   styleUrl: './product-details.container.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductDetailsContainer {
   @ViewChild('photoScroller') protected photoScroller?: ElementRef<HTMLDivElement>;
+  private readonly cart = inject(CartService);
+  private readonly router = inject(Router);
 
   protected readonly product: Product | undefined = (() => {
     const route = inject(ActivatedRoute);
@@ -37,6 +47,13 @@ export class ProductDetailsContainer {
 
   protected currentIndex = 0;
   protected quantity = 1;
+  /** Single-selected variant slug (matches `product.variants` entries). */
+  protected selectedVariant = '';
+
+  constructor() {
+    const first = this.product?.variants?.[0];
+    if (first) this.selectedVariant = first;
+  }
 
   protected scrollToIndex(index: number) {
     const el = this.photoScroller?.nativeElement;
@@ -73,8 +90,24 @@ export class ProductDetailsContainer {
     this.quantity = Math.max(1, next);
   }
 
+  protected onVariantChange(slug: string) {
+    this.selectedVariant = slug;
+  }
+
   protected onAddToCart() {
     if (!this.product) return;
-    console.log('Add to cart:', this.product, 'quantity:', this.quantity);
+
+    this.cart.addItem({
+      productId: this.product.id,
+      title: this.product.title,
+      subtitle: this.product.subtitle,
+      variant: this.selectedVariant || this.product.variants[0] || '',
+      quantity: this.quantity,
+      unitPrice: this.product.price,
+      photoUrl: this.product.photoUrls[0],
+      weight: this.product.weight,
+    });
+
+    this.router.navigate(['/checkout']);
   }
 }

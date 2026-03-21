@@ -1,4 +1,10 @@
-<div class="container-overlay">
+@if (isLoading()) {
+  <div class="page-loader">
+    <div class="loader-spinner" aria-hidden="true"></div>
+  </div>
+}
+
+<div class="container-overlay" [class.container-overlay--ready]="!isLoading()">
   <div class="container">
     <h1 class="title">Handcrafted</h1>
     <h3 class="subtitle">candles & decorations</h3>

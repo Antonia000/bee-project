@@ -1,0 +1,112 @@
+<main class="checkout-page">
+  <div class="topbar">
+    <a class="back-link" routerLink="/products">← Continue shopping</a>
+  </div>
+
+  @if (cart.items().length) {
+    <section class="checkout-layout">
+      <div class="summary">
+        <h1 class="title">Checkout</h1>
+
+        <div class="items">
+          @for (item of cart.items(); track item.productId + '-' + item.variant) {
+            <article class="item-card">
+              <button
+                class="remove-btn"
+                type="button"
+                aria-label="Remove item"
+                (click)="removeItem(item.productId, item.variant)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+
+              <img class="item-photo" [src]="item.photoUrl" [alt]="item.title" />
+
+              <div class="item-main">
+                <div class="item-copy">
+                  <h2 class="item-title">{{ item.title }}</h2>
+                  <p class="item-meta">{{ item.variant | titlecase }} · {{ item.weight }}</p>
+                  <p class="item-price">{{ item.unitPrice }} RON each</p>
+                </div>
+
+                <div class="item-controls">
+                  <app-quantity-stepper
+                    class="item-stepper"
+                    [quantity]="item.quantity"
+                    (quantityChange)="updateItemQuantity(item.productId, item.variant, $event)"
+                  ></app-quantity-stepper>
+                </div>
+              </div>
+
+              <div class="line-total">{{ item.unitPrice * item.quantity }} RON</div>
+            </article>
+          }
+        </div>
+      </div>
+
+      <div class="checkout-panel">
+        <form class="form" [formGroup]="form" (ngSubmit)="submitOrder()">
+          <label class="field">
+            <span>Name</span>
+            <input type="text" formControlName="name" placeholder="Enter name..." />
+          </label>
+
+          <label class="field">
+            <span>Email</span>
+            <input type="email" formControlName="email" placeholder="Enter email address..." />
+          </label>
+
+          <label class="field">
+            <span>City</span>
+            <select formControlName="city">
+              <option value="Ilfov">Ilfov</option>
+              <option value="Bucuresti">Bucuresti</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Address</span>
+            <textarea rows="2" formControlName="address" placeholder="Enter address..."></textarea>
+          </label>
+
+          <label class="gift-option">
+            <input type="checkbox" formControlName="giftPackaging" />
+            <span>Gift packaging (+{{ giftPackagingFee }} RON)</span>
+          </label>
+
+          <div class="totals">
+            <div class="total-row">
+              <span>Subtotal</span>
+              <strong>{{ subtotal() }} RON</strong>
+            </div>
+            <div class="total-row">
+              <span>Gift packaging</span>
+              <strong>{{ form.controls.giftPackaging.value ? giftPackagingFee : 0 }} RON</strong>
+            </div>
+            <div class="total-row total-row--final">
+              <span>Total</span>
+              <strong>{{ total() }} RON</strong>
+            </div>
+          </div>
+
+          @if (submitError()) {
+            <p class="status status--error">{{ submitError() }}</p>
+          }
+          @if (submitSuccess()) {
+            <p class="status status--success">Order request sent.</p>
+          }
+
+          <button class="submit-btn" type="submit" [disabled]="submitting()">
+            {{ submitting() ? 'Sending...' : 'Place order' }}
+          </button>
+        </form>
+      </div>
+    </section>
+  } @else {
+    <app-empty-state
+      title="Your cart is empty"
+      description="Add a product from the details page to continue to checkout."
+      icon="shopping_bag"
+    ></app-empty-state>
+  }
+</main>

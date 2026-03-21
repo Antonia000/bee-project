@@ -1,4 +1,10 @@
-<main class="container">
+@if (isLoading()) {
+  <div class="page-loader">
+    <div class="loader-spinner" aria-hidden="true"></div>
+  </div>
+}
+
+<main class="container" [class.container--ready]="!isLoading()">
   <header class="header">
     <h1 class="title">Our Goods</h1>
   </header>
