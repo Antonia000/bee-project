@@ -253,10 +253,10 @@
   background-size:
     cover,
     320px auto;
-  background-repeat: no-repeat, repeat;
+  background-repeat: no-repeat, no-repeat;
   background-position:
     center,
-    top left;
+    center;
   color: var(--color-third);
   font-family: 'Syncopate';
   font-size: 12px;

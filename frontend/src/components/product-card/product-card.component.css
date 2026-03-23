@@ -129,11 +129,11 @@
     url('/motive.png');
   background-size:
     cover,
-    280px auto;
-  background-repeat: no-repeat, repeat;
+    cover;
+  background-repeat: no-repeat, no-repeat;
   background-position:
     center,
-    top left;
+    center;
   color: var(--color-third);
   font-family: 'Syncopate';
   font-size: 12px;
@@ -154,7 +154,7 @@
   box-shadow: 0 10px 30px rgba(47, 41, 41, 0.18);
   background-image:
     linear-gradient(rgba(245, 238, 218, 0.4), rgba(235, 226, 198, 0.8)),
-    url('../../../public/motive.png');
+    url('/motive.png');
   transform: translateY(-2px);
 }
 

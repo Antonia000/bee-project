@@ -87,13 +87,9 @@ body {
   color: $color-secondary;
   font-family: 'Montserrat', sans-serif;
   background-image:
-    linear-gradient(rgba(207, 177, 114, 0.7), rgba(105, 88, 51, 0.92)), url('/motive.png');
-  background-repeat: no-repeat, repeat;
-  background-size:
-    cover,
-    340px auto;
-  background-position:
-    center,
-    top left;
+    linear-gradient(rgba(207, 177, 114, 0.7), rgba(105, 88, 51, 0.92)), url('/background.jpg');
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
   background-attachment: fixed, fixed;
 }

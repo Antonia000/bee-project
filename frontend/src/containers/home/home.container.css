@@ -101,15 +101,10 @@
     text-transform: uppercase;
     cursor: pointer;
     background-image:
-      linear-gradient(rgba(109, 86, 16, 0.516), rgba(209, 203, 184, 0.709)),
-      url('../../../public/motive.png');
-    background-repeat: no-repeat, repeat;
-    background-size:
-      cover,
-      220px auto;
-    background-position:
-      center,
-      top left;
+      linear-gradient(rgba(109, 86, 16, 0.516), rgba(209, 203, 184, 0.709)), url('/motive.png');
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+    background-position: center, center;
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
@@ -121,8 +116,7 @@
   }
   .cta-button:hover {
     background-image:
-      linear-gradient(rgba(84, 70, 29, 0.2), rgba(84, 70, 29, 0.4)),
-      url('../../../public/motive.png');
+      linear-gradient(rgba(84, 70, 29, 0.2), rgba(84, 70, 29, 0.4)), url('/motive.png');
     transform: translateY(-1px);
   }
   .cta-button:hover .cta-arrow {

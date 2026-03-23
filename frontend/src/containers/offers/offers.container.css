@@ -45,11 +45,10 @@
 .offer-media-contour {
   position: relative;
   overflow: hidden;
-  padding: 10px;
+  padding: 12px;
   border-radius: 50% 50% 0 0;
   transform: translateY(16px);
   border: 1px solid rgba(234, 224, 202, 0.85);
-  background: var(--color-blur-background);
   box-shadow:
     0 14px 30px rgba(47, 41, 41, 0.08),
     inset 0 0 0 1px rgba(255, 255, 255, 0.22);
@@ -59,7 +58,7 @@
   height: 460px;
   object-fit: cover;
   display: block;
-  border-radius: var(--offer-media-radius);
+  border-radius: 50% 50% 0 0;
 }
 
 .offer-copy {
@@ -91,6 +90,39 @@
   margin: 0;
   line-height: 1.6;
   opacity: 0.9;
+}
+
+.contact-button {
+  margin-top: 0.8rem;
+  justify-self: start;
+  padding: 0.6rem 2.5rem;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--color-third);
+  background-image:
+    linear-gradient(rgba(109, 86, 16, 0.516), rgba(209, 203, 184, 0.709)), url('/motive.png');
+  background-repeat: no-repeat, no-repeat;
+  background-size:
+    cover,
+    220px auto;
+  background-position: center, center;
+  color: var(--color-third);
+  font-family: 'Syncopate';
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact-button:hover {
+  background-image:
+    linear-gradient(rgba(84, 70, 29, 0.2), rgba(84, 70, 29, 0.4)), url('/motive.png');
+  transform: translateY(-1px);
 }
 
 @media (max-width: 900px) {
