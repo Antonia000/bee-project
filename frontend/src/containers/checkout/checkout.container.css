@@ -254,10 +254,8 @@
     cover,
     320px auto;
   background-repeat: no-repeat, no-repeat;
-  background-position:
-    center,
-    center;
-  color: var(--color-third);
+  background-position: center, center;
+  color: var(--color-secondary);
   font-family: 'Syncopate';
   font-size: 12px;
   letter-spacing: 0.1em;
